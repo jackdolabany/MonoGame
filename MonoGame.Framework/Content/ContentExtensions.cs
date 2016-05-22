@@ -33,8 +33,8 @@ namespace Microsoft.Xna.Framework.Content
 #if WINRT
             PropertyInfo[] infos= type.GetTypeInfo().DeclaredProperties.ToArray();
             var nonStaticPropertyInfos = from p in infos
-                                         where (p.GetMethod != null) && (!p.GetMethod.IsStatic) &&
-                                         (p.GetMethod == p.GetMethod.GetRuntimeBaseDefinition())
+                                         where (p.GetMethod != null) && (!p.GetMethod.IsStatic) //&&
+                                         //(p.GetMethod == p.GetMethod.GetRuntimeBaseDefinition())
                                          select p;
             return nonStaticPropertyInfos.ToArray();
 #else
